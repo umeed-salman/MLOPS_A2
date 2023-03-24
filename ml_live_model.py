@@ -9,7 +9,6 @@ Original file is located at
 
 import tensorflow as tf
 import numpy as np
-import alpha_vantage
 from alpha_vantage.timeseries import TimeSeries
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
