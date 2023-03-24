@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-import alpha_vantage
 from alpha_vantage.timeseries import TimeSeries
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -20,6 +19,7 @@ model = tf.keras.models.load_model('model.h5')
 # Normalize the data
 scaler = MinMaxScaler(feature_range=(0, 1))
 
+
 # Function to create the input data and labels
 def create_dataset(data, look_back=1):
     X, Y = [], []
@@ -33,10 +33,10 @@ def create_dataset(data, look_back=1):
 @app.route('/')
 def home():
     # Retrieve the stock data
-    symbol='IBM'
+    symbol = 'IBM'
     data, meta_data = ts.get_daily_adjusted(
-        symbol=symbol, outputsize='compact')
-    dates=[]
+        symbol = symbol, outputsize = 'compact')
+    dates = []
     for i in data.index:
         dates.append(i.strftime("%m/%d/%Y"))
 
@@ -63,7 +63,7 @@ def home():
 
     last_7_days = []
     for i in range(-7, 0):
-        last_7_days.append([dates[i], 
+        last_7_days.append([dates[i],
                             scaler.inverse_transform([data[i]])[0][0]])
 
     next_day_predicted = predicted[-1][0]
