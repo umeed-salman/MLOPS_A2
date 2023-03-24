@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+    <style>
+        ul.breadcrumb {
+            padding: 10px 16px;
+            text-align:center;
+            list-style: none;
+            background-color: #eee;
+        }
+        ul.breadcrumb li {
+            display: inline;
+            font-size: 18px;
+        }
+        ul.breadcrumb li+li:before {
+            padding: 8px;
+            color: black;
+            content: "/\00a0";
+        }
+        ul.breadcrumb li a {
+            color: #0275d8;
+            text-decoration: none;
+        }
+        ul.breadcrumb li a:hover {
+            color: #01447e;
+            text-decoration: underline;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #eee;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<ul class="breadcrumb">
+    <nav>
+        <h1>Stock Price Prediction</h1>
+        <li><a href="/">Home</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+    </nav>
+</ul>
+
+<h2>Stock name:</h2>
+{{symbol}}
+
+<h2>Last 7 days of stock prices:</h2>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Price</th>
+    </tr>
+    {% for day in last_7_days %}
+    <tr>
+        <td>{{ day[0] }}</td>
+        <td>{{ day[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Predicted price for the next day:</h2>
+<p>{{ next_day_predicted }}</p>
+</body>
+</html>
+

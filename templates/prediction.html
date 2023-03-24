@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+    <style>
+ul.breadcrumb {
+  padding: 10px 16px;
+  text-align:center;
+  list-style: none;
+  background-color: #eee;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<ul class="breadcrumb" justify-content-center>
+    <nav>
+        <h1>Stock Price Prediction</h1>
+
+        <li><a href="/">Home</a></li>
+        <li><a href="/prediction">Prediction</a></li>
+    </nav>
+</ul>
+<h2>Predict the Next Day Stock Price</h2>
+<form method="post">
+    <label for="day1">Day 1: </label>
+    <input type="text" id="day1" name="user_input" required>
+    <br>
+    <label for="day2">Day 2: </label>
+    <input type="text" id="day2" name="user_input" required>
+    <br>
+    <label for="day3">Day 3: </label>
+    <input type="text" id="day3" name="user_input" required>
+    <br>
+    <label for="day4">Day 4: </label>
+    <input type="text" id="day4" name="user_input" required>
+    <br>
+    <label for="day5">Day 5: </label>
+    <input type="text" id="day5" name="user_input" required>
+    <br>
+    <label for="day6">Day 6: </label>
+    <input type="text" id="day6" name="user_input" required>
+    <br>
+    <label for="day7">Day 7: </label>
+    <input type="text" id="day7" name="user_input" required>
+    <br><br>
+    <input type="submit" value="Predict">
+</form>
+<br>
+{% if next_day_predicted %}
+<p>The predicted stock price for the next day is: {{ next_day_predicted }}</p>
+{% endif %}
+</body>
+</html>
