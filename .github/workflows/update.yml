@@ -1,17 +1,18 @@
 name: Push Event Workflow
 
-on: push
+on:
+  push
 
 jobs:
   unit-testing:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
       
-    - name: Install Package
-      run: pip install flake8
+      - name: Install Package
+        run: pip install flake8
       
-    - name: Run tests
-      run: flake8 server.py
+      - name: Run tests
+        run: flake8 server.py
