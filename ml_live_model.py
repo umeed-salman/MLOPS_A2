@@ -67,9 +67,8 @@ model.add(tf.keras.layers.Dense(units=1))
 model.compile(optimizer='adam', loss='mean_absolute_error')
 
 # Train the model
-history = model.fit(trainX, trainY, epochs=50, 
-          batch_size=32, validation_data=(testX, testY))
-
+history = model.fit(trainX, trainY, epochs=50,
+                    batch_size=32, validation_data=(testX, testY))
 
 testPredict = model.predict(testX)
 testPredict = scaler.inverse_transform(testPredict)
