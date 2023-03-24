@@ -15,4 +15,4 @@ jobs:
         run: pip install flake8
       
       - name: Run tests
-        run: flake8 server.py
+        run: flake8 ml_live_model.py
