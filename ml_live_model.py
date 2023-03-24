@@ -45,8 +45,8 @@ X, Y = create_dataset(data, look_back)
 # Split the data into training and testing sets
 train_size = int(len(X) * 0.8)
 test_size = len(X) - train_size
-trainX,testX = X[0:train_size,:], X[train_size:len(X),:]
-trainY,testY = Y[0:train_size], Y[train_size:len(Y)]
+trainX, testX = X[0:train_size, :], X[train_size:len(X), :]
+trainY, testY = Y[0:train_size], Y[train_size:len(Y)]
 
 # Reshape the input data to be 3-dimensional
 trainX = np.reshape(trainX, (trainX.shape[0], trainX.shape[1], 1))
@@ -68,7 +68,7 @@ model.compile(optimizer='adam', loss='mean_absolute_error')
 
 # Train the model
 history = model.fit(trainX, trainY, epochs=50, 
-                    batch_size=32, validation_data=(testX, testY))
+          batch_size=32, validation_data=(testX, testY))
 
 
 testPredict = model.predict(testX)
@@ -76,9 +76,9 @@ testPredict = scaler.inverse_transform(testPredict)
 testY = scaler.inverse_transform([testY])
 
 
-plt.figure(figsize=(18,9))
+plt.figure(figsize=(18, 9))
 plt.plot(testY[0], label='Actual')
-plt.plot(testPredict[:,0],label='Predicted')
+plt.plot(testPredict[:, 0], label='Predicted')
 plt.legend()
 plt.show()
 
