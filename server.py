@@ -33,6 +33,7 @@ def create_dataset(data, look_back=1):
 @app.route('/')
 def home():
     # Retrieve the stock data
+
     symbol = 'IBM'
     data, meta_data = ts.get_daily_adjusted(symbol=symbol,
                                             outputsize='compact')
