@@ -36,6 +36,7 @@ def create_dataset(data, look_back=1):
         Y.append(data[i+look_back, 0])
     return np.array(X), np.array(Y)
 
+
 look_back = 7
 
 
