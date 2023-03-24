@@ -35,7 +35,7 @@ def home():
     # Retrieve the stock data
     symbol = 'IBM'
     data, meta_data = ts.get_daily_adjusted(symbol = symbol,
-                                            outputsize ='compact')
+                                            outputsize = 'compact')
     dates = []
     for i in data.index:
         dates.append(i.strftime("%m/%d/%Y"))
