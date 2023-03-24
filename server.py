@@ -34,8 +34,8 @@ def create_dataset(data, look_back=1):
 def home():
     # Retrieve the stock data
     symbol = 'IBM'
-    data, meta_data = ts.get_daily_adjusted(symbol = symbol,
-                                            outputsize = 'compact')
+    data, meta_data = ts.get_daily_adjusted(symbol=symbol,
+                                            outputsize='compact')
     dates = []
     for i in data.index:
         dates.append(i.strftime("%m/%d/%Y"))
@@ -47,9 +47,7 @@ def home():
     data = scaler.fit_transform(data)
 
     # Create input data and labels
-    
-    
-    look_back = 7 # Number of previous days to use as input features
+    look_back = 7  # Number of previous days to use as input features
     X, Y = create_dataset(data, look_back)
 
     # Reshape the input data to be 3-dimensional
