@@ -35,7 +35,7 @@ def home():
     # Retrieve the stock data
 
     symbol = 'IBM'
-    data, meta_data = ts.get_daily_adjusted(symbol=symbol,
+    data, meta_data = ts.get_daily(symbol=symbol,
                                             outputsize='compact')
     dates = []
     for i in data.index:
